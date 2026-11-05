@@ -1,0 +1,504 @@
+:root {
+  --bg: #111;
+  --surface: #1b1b1b;
+  --surface-2: #242424;
+  --border: #2c2c2c;
+  --text: #f1f1f1;
+  --muted: #8a8a8a;
+  --accent: #ff9000;
+  --accent-hover: #ff9b00;
+  --radius: 0.4em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+
+.topbar {
+  background: #1a1a1a;
+  border-bottom: 0.15em solid #2c2c2c;
+  padding: 1.8em 3em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6em 1.2em;
+  font-size: 1em;
+  color: #e0e0e0;
+  min-width: 0; 
+}
+
+.topbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.topbar a:hover {
+  color: #ff9000;
+}
+
+.topbar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.topbar-address .geo-icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.topbar-time {
+  color: #8a8a8a;
+  font-size: 0.9em;
+}
+
+.topbar-phones {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1em;
+  min-width: 0;
+}
+
+.topbar-tg {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.topbar-tg img {
+  width: 4em;
+  height: 4em;
+  display: block;
+}
+
+.topbar-tg:hover {
+  opacity: 0.8;
+}
+
+.topbar-tg:hover {
+  color: #ff9000;
+}
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0a0a0a;
+  border-bottom: 0.15em solid var(--accent);
+  padding: 0.6em 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.truck {
+  position: relative;
+  width: 3.2em;
+  height: 1.8em;
+  flex-shrink: 0;
+}
+
+.truck-cab {
+  position: absolute;
+  left: 2.4em;
+  bottom: 0.4em;
+  width: 0.8em;
+  height: 0.9em;
+  background: var(--accent);
+  border-radius: 0.15em 0.4em 0 0;
+}
+
+.truck-trailer {
+  position: absolute;
+  left: 0;
+  bottom: 0.4em;
+  width: 2.3em;
+  height: 0.9em;
+  background: var(--accent);
+  border-radius: 0.1em;
+}
+
+.truck-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 0.5em;
+  height: 0.5em;
+  background: #0a0a0a;
+  border: 0.12em solid var(--accent);
+  border-radius: 50%;
+}
+
+.wheel-1 {
+  left: 0.3em;
+}
+
+.wheel-2 {
+  left: 1.7em;
+}
+
+.wheel-3 {
+  left: 2.6em;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.7em;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.2em;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.2em;
+}
+
+.site-nav a {
+  flex-shrink: 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.content {
+  max-width: 90em;
+  margin: 1.5em auto;
+  padding: 0 1.5em;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 800;
+  border-bottom: 0.1em solid var(--accent);
+  padding-bottom: 0.4em;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: var(--accent);
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 1em;
+  margin: 0.6em 0 0.3em;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-bottom: 1.5em;
+}
+
+.float-left {
+  float: left;
+  margin: 0 1em 0.5em 0;
+  max-width: 40%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.float-right {
+  float: right;
+  margin: 0 0 0.5em 1em;
+  max-width: 40%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2em;
+}
+
+.service-card {
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding-bottom: 0.8em;
+}
+
+.service-card img {
+  width: 100%;
+  height: 15em;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card h3 {
+  padding: 0 0.8em;
+  color: var(--accent);
+}
+
+.service-card p {
+  padding: 0 0.8em;
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8em;
+}
+
+.price-table th,
+.price-table td {
+  text-align: left;
+  padding: 0.7em 1em;
+  border-bottom: 0.05em solid var(--border);
+}
+
+.price-table th {
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 0.95em;
+}
+
+.price-table tr:hover td {
+  background: var(--surface);
+}
+
+.price-note {
+  font-size: 0.85em;
+  color: var(--muted);
+  margin-top: 0.6em;
+}
+
+.faq-item {
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 0.6em;
+  background: var(--surface);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 1em;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 1em 1em;
+  color: var(--muted);
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.order-form {
+  margin-top: 2em;
+  padding: 1.5em;
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-left: 0.25em solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.order-form label {
+  display: block;
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-bottom: 0.4em;
+}
+
+.order-form input {
+  width: 100%;
+  max-width: 25em;
+  padding: 0.7em 1em;
+  font-family: inherit;
+  font-size: 1em;
+  background: var(--surface-2);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  margin-bottom: 0.8em;
+}
+
+.order-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.order-form button {
+  padding: 0.7em 1.6em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.order-form button:hover {
+  background: var(--accent-hover);
+}
+
+.form-message {
+  margin-top: 0.8em;
+  font-size: 0.9em;
+  color: var(--accent);
+}
+
+.site-footer {
+  background: #0d0d0d;
+  border-top: 0.15em solid var(--accent);
+  color: var(--muted);
+  text-align: center;
+  padding: 1.2em;
+  font-size: 0.85em;
+  margin-top: 2em;
+}
+
+.other-works {
+  max-width: 90em;
+  margin: 2em auto 0;
+  padding: 1.5em;
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-left: 0.25em solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.works-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 0.8em;
+}
+
+.work-link {
+  display: inline-block;
+  padding: 0.7em 1.2em;
+  background: var(--surface-2);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.work-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+@media (max-width: 48em) {
+      .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3em;
+    padding: 0.6em 1em;
+    font-size: 0.8em;
+    width: 100%;
+    min-width: 0;
+  }
+    .topbar-item {
+    max-width: 100%;         
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em;
+  }
+
+  .site-nav {
+    gap: 0.6em;
+    padding: 0.2em 0.2em;
+  }
+  .site-nav a {
+    font-size: 0.7em;
+    padding: 0.2em 0.2em;
+  }
+
+  .content {
+    padding: 0 1em;
+    margin: 1em auto;
+    font-size: 0.5em;
+  }
+
+  .float-left,
+  .float-right {
+    display: block;
+    max-width: 50%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+  .order-form input {
+    max-width: 100%;
+  }
+}
