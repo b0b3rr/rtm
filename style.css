@@ -333,6 +333,7 @@ section::after {
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
 .faq-question:hover {
