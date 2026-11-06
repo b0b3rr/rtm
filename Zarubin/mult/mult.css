@@ -1,0 +1,138 @@
+.picture_lab2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to top, #63cdf7, #ffffff);
+    border: 5px solid #000000;
+    align-self: center; 
+}
+
+.picture_lab2_svg {
+    width: 200px;
+    height: 200px;
+}
+
+.text-go_for_dream {
+    opacity: 0;                           
+    transition: opacity 0.3s;    
+}
+.picture_lab2:hover .text-go_for_dream {
+    opacity: 1;
+}
+
+.man       { opacity: 0; }
+.man1      { opacity: 1; }
+
+
+@keyframes go_man1 {
+    0% {opacity: 1;}
+    25% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes go_man2 {
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    50% {opacity: 0;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes go_man3 {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    75% {opacity: 0;}
+    100% {opacity: 0;}   
+}
+
+.picture_lab2:hover .man1 {
+    animation: go_man1 1s steps(1) infinite;
+}
+.picture_lab2:hover .man2 {
+    animation: go_man2 1s steps(1) infinite;
+}
+.picture_lab2:hover .man3 {
+    animation: go_man3 1s steps(1) infinite;
+}
+
+.star {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.star_place {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.picture_lab2:hover .star_place {
+    opacity: 1;
+}
+
+.star_place:hover .star {
+    animation: star_spin 2s linear infinite;
+}
+
+@keyframes star_spin {
+    0% {transform: translate(0, 0) rotate(0deg);}
+    13% {transform: translate(-15px, 15px) rotate(30deg);}
+    25% {transform: translate(-30px, 0px) rotate(70deg);}
+    38% {transform: translate(-15px, -15px) rotate(180deg);}
+    63% {transform: translate(0px, 0px) rotate(230deg);}
+    75% {transform: translate(15px, 15px) rotate(280deg);}
+    88% {transform: translate(30px, 0px) rotate(320deg);}
+    100% {transform: translate(0px, 0px) rotate(360deg);}
+}
+
+text {
+    font-size: 20px;
+}
+
+.brush {
+    opacity: 0;
+}
+
+.text-dream_near {
+    opacity: 0;
+}
+
+.picture_lab2:active .text-go_for_dream,
+.picture_lab2:active .star_place {
+    opacity: 0;
+}
+
+.picture_lab2:active .brush {
+    animation: brush_go 3s forwards;
+}
+
+@keyframes brush_go {
+    0% {transform: translate(0, 0); opacity: 1;}
+    13% {transform: translate(30px, 15px);}
+    25% {transform: translate(60px, -15px);}
+    38% {transform: translate(90px, 15px);}
+    63% {transform: translate(120px,-15px);}
+    75% {transform: translate(150px, 15px);}
+    88% {transform: translate(180px, -15px);}
+    99% {opacity: 1;}
+    100% {transform: translate(200px, 15px); opacity: 0;}
+}
+
+.picture_lab2:active .text-dream_near {
+    animation: final_show 0.4s 3s forwards;
+}
+
+@keyframes final_show {
+    100% { opacity: 1; }
+}
+
+.picture_lab2:active {
+    animation: zoom 1.5s 3s infinite;
+}
+
+@keyframes zoom {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}

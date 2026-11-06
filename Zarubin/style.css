@@ -1,0 +1,41 @@
+/* ---------- Карточки работ ---------- */
+.work {
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.work h2 {
+  margin-top: 0;
+  border-bottom: 0.05em solid var(--border);
+  padding-bottom: 0.5em;
+}
+
+.work p {
+  color: var(--muted);
+  font-size: 0.95em;
+}
+
+.picture,
+.picture_lab2,
+.box {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%;
+}
+
+.work-link {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.work-link:hover {
+  background: var(--accent-hover);
+}

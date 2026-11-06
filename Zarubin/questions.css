@@ -1,0 +1,224 @@
+/* Специфика викторины. Общие стили — в common.css */
+
+.sub {
+  color: var(--muted);
+  margin-bottom: 1.5em;
+}
+
+#quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+
+#finish {
+  margin: 0 0 1em;
+  padding: 1em;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-left: 0.25em solid var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+  text-align: center;
+  display: none;
+}
+
+#finish.show {
+  display: block;
+}
+
+.q-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2em;
+  width: 100%;
+}
+
+.q-block {
+  flex: 1 1 30%;
+  min-width: 12em;
+  max-width: 30em;
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  padding: 1em;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  position: relative;
+  transition: transform 0.3s, border-color 0.2s;
+  overflow-wrap: break-word;
+}
+
+.q-block:hover {
+  transform: scale(1.02);
+  border-color: #3a3a3a;
+}
+
+.q-block .num {
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 0.8em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.q-block .qtext {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.q-block .marker {
+  margin-left: auto;
+  font-size: 1.2em;
+  font-weight: 900;
+  opacity: 0;
+  transition: opacity 0.4s;
+  flex-shrink: 0;
+}
+
+.q-block .marker.show {
+  opacity: 1;
+}
+
+.q-block.correct {
+  border-color: #3ddc84;
+}
+
+.q-block.wrong {
+  border-color: #ff5c7a;
+}
+
+.a-row {
+  flex: 1 1 60%;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1em;
+  min-height: 4em;
+}
+
+.a-block {
+  flex: 1 1 10em;
+  max-width: 30em;
+  background: var(--surface-2);
+  border: 0.05em solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75em 1em;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, opacity 0.5s;
+  overflow-wrap: break-word;
+}
+
+.a-block:hover {
+  background: #2e2e2e;
+  border-color: var(--accent);
+  transform: scale(1.06);
+}
+
+.a-block.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.a-block.correct {
+  background: #1f2e22;
+  border-color: #3ddc84;
+  transform: scale(1.08);
+}
+
+.a-block .explain {
+  display: none;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+  border-top: 1px dashed #3ddc84;
+  color: #b8f5cf;
+}
+
+.a-block.correct .explain {
+  display: block;
+}
+
+@keyframes shake {
+  0%   { transform: translate(0, 0) scale(1.02); }
+  25%  { transform: translate(-0.2em, 0.2em) scale(1.02); }
+  50%  { transform: translate(0.2em, -0.2em) scale(1.02); }
+  75%  { transform: translate(-0.2em, -0.2em) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1.02); }
+}
+
+.a-block.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes drop {
+  0%   { opacity: 1; transform: translateY(0); }
+  99%  { opacity: 1; transform: translateY(70em); }
+  100% { opacity: 0; }
+}
+
+.a-block.leaving {
+  animation: drop 0.8s forwards;
+}
+
+#stats {
+  margin: 1.6em 0;
+  padding: 1em;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 0.05em solid var(--border);
+  border-left: 0.25em solid var(--accent);
+  display: none;
+}
+
+#stats.show {
+  display: block;
+}
+
+#stats b {
+  color: var(--accent);
+  font-size: 1.3em;
+}
+
+#restart {
+  margin: 0 0 1em;
+  padding: 0.8em 1.4em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+#restart:hover {
+  background: var(--accent-hover);
+}
+
+@media (max-width: 48em) {
+  .q-row {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .q-block {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+
+  .a-row {
+    flex: 1 1 auto;
+  }
+}

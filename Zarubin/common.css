@@ -1,0 +1,203 @@
+:root {
+  --bg: #111;
+  --surface: #1b1b1b;
+  --surface-2: #242424;
+  --border: #2c2c2c;
+  --text: #f1f1f1;
+  --muted: #8a8a8a;
+  --accent: #ff9000;
+  --accent-hover: #ff9b00;
+  --radius: 0.4em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.topbar {
+  background: #1a1a1a;
+  border-bottom: 0.15em solid var(--border);
+  padding: 1em 3em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6em 1.2em;
+  font-size: 0.9em;
+  color: #e0e0e0;
+}
+
+.topbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+.topbar a:hover {
+  color: var(--accent);
+}
+
+.topbar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.truck {
+  position: relative;
+  width: 3.2em;
+  height: 1.8em;
+  flex-shrink: 0;
+}
+
+.truck-cab,
+.truck-trailer {
+  position: absolute;
+  bottom: 0.4em;
+  height: 0.9em;
+  background: var(--accent);
+}
+
+.truck-cab {
+  left: 2.4em;
+  width: 0.8em;
+  border-radius: 0.15em 0.4em 0 0;
+}
+
+.truck-trailer {
+  left: 0;
+  width: 2.3em;
+  border-radius: 0.1em;
+}
+
+.truck-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 0.5em;
+  height: 0.5em;
+  background: #0a0a0a;
+  border: 0.12em solid var(--accent);
+  border-radius: 50%;
+}
+
+.wheel-1 { left: 0.3em; }
+.wheel-2 { left: 1.7em; }
+.wheel-3 { left: 2.6em; }
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.4em;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0a0a0a;
+  border-bottom: 0.15em solid var(--accent);
+  padding: 0.6em 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2em;
+  max-width: 100%;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.content {
+  max-width: 75em;
+  margin: 1.5em auto;
+  padding: 0 1.5em;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 800;
+  border-bottom: 0.1em solid var(--accent);
+  padding-bottom: 0.4em;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: var(--accent);
+  margin-top: 2em;
+}
+
+.site-footer {
+  background: #0d0d0d;
+  border-top: 0.15em solid var(--accent);
+  color: var(--muted);
+  text-align: center;
+  padding: 1.2em;
+  font-size: 0.85em;
+  margin-top: 2em;
+}
+
+@media (max-width: 48em) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.6em 1em;
+    font-size: 0.8em;
+  }
+
+  .site-header {
+    padding: 0.5em 0.6em;
+  }
+
+  .site-nav {
+    gap: 0.6em;
+  }
+
+  .site-nav a {
+    font-size: 0.8em;
+    padding: 0.3em 0.5em;
+  }
+
+  .content {
+    padding: 0 1em;
+  }
+}
