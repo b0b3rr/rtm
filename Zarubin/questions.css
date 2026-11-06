@@ -1,4 +1,6 @@
-/* Специфика викторины. Общие стили — в common.css */
+.content {
+  min-height: 45em;
+}
 
 .sub {
   color: var(--muted);
