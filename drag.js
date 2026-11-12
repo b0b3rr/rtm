@@ -8,7 +8,7 @@ var errorMsg = document.getElementById("errorMsg");
 var output = document.getElementById("output");
 
 var currentWords = [];
-var baseColor = randomColor();   // один базовый цвет на всю страницу
+var baseColor = randomColor();
 var draggedElement = null;
 var draggedKey = null;
 var draggedWord = null;
@@ -17,13 +17,11 @@ var draggedOldLeft = 0;
 var draggedOldTop = 0;
 var dropDone = false;
 
-/* ---------- случайный яркий цвет ---------- */
 function randomColor() {
   var h = Math.floor(Math.random() * 360);
   return "hsl(" + h + ", 85%, 70%)";
 }
 
-/* ---------- разбор строки ---------- */
 function parseString(str) {
   var parts = str.split(/[-—]/);
   var tokens = [];
@@ -37,10 +35,10 @@ function parseString(str) {
   }
 
   if (tokens.length === 0) {
-    return { error: "Введите слова через тире." };
+    return { error: "Введите слова через тире" };
   }
   if (tokens.length > 20) {
-    return { error: "Слишком много слов (максимум 20)." };
+    return { error: "Слишком много слов (максимум 20)" };
   }
 
   var lower = [];
@@ -57,7 +55,7 @@ function parseString(str) {
     } else if (/^[А-ЯЁ][а-яё]*$/.test(t)) {
       upper.push(t);
     } else {
-      return { error: "Ошибка: «" + t + "». Только русские слова и цифры." };
+      return { error: "Ошибка: «" + t + "». Только русские слова и цифры" };
     }
   }
 
@@ -85,7 +83,6 @@ function parseString(str) {
   return { words: result };
 }
 
-/* ---------- отрисовка овалов в box3 ---------- */
 function renderBox3() {
   box3.innerHTML = "";
   var i;
@@ -104,7 +101,6 @@ function renderBox3() {
   }
 }
 
-/* ---------- drag start ---------- */
 function onDragStart(e) {
   draggedElement = e.target;
   draggedKey = e.target.dataset.key;
@@ -120,7 +116,6 @@ function onDragStart(e) {
   e.dataTransfer.setData("text/plain", draggedKey);
   e.dataTransfer.effectAllowed = "move";
 
-  // обработчик окончания перетаскивания
   draggedElement.addEventListener("dragend", onDragEnd);
 
   setTimeout(function () {
@@ -130,7 +125,6 @@ function onDragStart(e) {
   }, 0);
 }
 
-/* ---------- drag over / enter ---------- */
 function dragOver(e) {
   e.preventDefault();
   e.dataTransfer.dropEffect = "move";
@@ -140,7 +134,6 @@ function dragEnter(e) {
   e.preventDefault();
 }
 
-/* ---------- drop ---------- */
 function dragDrop(e) {
   e.preventDefault();
 
@@ -205,7 +198,6 @@ function resetDrag() {
   draggedFrom = null;
 }
 
-/* ---------- положить в box2 ---------- */
 function dropToBox2(e, boxRect) {
   var el = draggedElement;
 
@@ -219,7 +211,6 @@ function dropToBox2(e, boxRect) {
     }
     currentWords = newArr;
     renderBox3();
-    // создаём новый элемент, т.к. старый был в box3 и перерисован
     el = document.createElement("span");
     el.className = "oval";
     el.textContent = draggedWord;
@@ -255,7 +246,6 @@ function dropToBox2(e, boxRect) {
   el.style.top = y + "px";
 }
 
-/* ---------- положить в box3 ---------- */
 function dropToBox3(e, boxRect) {
   var el = draggedElement;
 
@@ -288,7 +278,7 @@ function dropToBox3(e, boxRect) {
   renderBox3();
 }
 
-/* ---------- клик по овалу в box2 ---------- */
+
 function onOvalClickInBox2(e) {
   var el = e.target;
   var word = el.dataset.word;
@@ -301,7 +291,6 @@ function onOvalClickInBox2(e) {
   output.appendChild(line);
 }
 
-/* ---------- разбор строки ---------- */
 function parseHandler() {
   errorMsg.textContent = "";
 
@@ -312,7 +301,6 @@ function parseHandler() {
     return;
   }
 
-  // очищаем box2 от овалов
   var ovals = box2.querySelectorAll(".oval");
   var i;
   for (i = 0; i < ovals.length; i++) {
@@ -321,11 +309,10 @@ function parseHandler() {
 
   output.innerHTML = "";
   currentWords = result.words;
-  baseColor = randomColor();   // новый базовый цвет при новом разборе
+  baseColor = randomColor();
   renderBox3();
 }
 
-/* ---------- очистка ---------- */
 function clearHandler() {
   currentWords = [];
   baseColor = randomColor();
@@ -335,10 +322,9 @@ function clearHandler() {
   wordInput.value = "";
   errorMsg.textContent = "";
 
-  // восстанавливаем поле ввода и кнопку в box1
   box1.innerHTML =
     '<div class="box1-top">' +
-      '<input type="text" id="wordInput" placeholder="лес - бочка - 20 - бык - крик - 3 - Бок">' +
+      '<input type="text" id="wordInput" placeholder="слова - числа - 123">' +
       '<button type="button" id="parseBtn">Разобрать</button>' +
     '</div>' +
     '<p id="errorMsg" class="error-msg"></p>' +
@@ -352,7 +338,6 @@ function clearHandler() {
   parseBtn.addEventListener("click", parseHandler);
 }
 
-/* ---------- привязка событий ---------- */
 parseBtn.addEventListener("click", parseHandler);
 clearBtn.addEventListener("click", clearHandler);
 
