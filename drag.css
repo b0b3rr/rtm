@@ -1,0 +1,147 @@
+.drag-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 5%;
+}
+
+/* ---------- box3 ---------- */
+.box3 {
+  height: 80px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ---------- строка box2 + box1 ---------- */
+.drag-row {
+  display: flex;
+  gap: 5%;
+  margin-top: 5%;
+  height: 500px;
+}
+
+/* ---------- box2 ---------- */
+.box2 {
+  flex: 0 0 30%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- box1 ---------- */
+.box1 {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.box1-top {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.box1-top input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 13px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+}
+
+.box1-top input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.box1-top button {
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.box1-top button:hover {
+  background: var(--accent-hover);
+}
+
+.error-msg {
+  color: #ff5c7a;
+  font-size: 12px;
+  margin: 0 0 8px;
+  min-height: 16px;
+}
+
+.box1 .word-item {
+  display: inline-block;
+  margin: 0 8px 4px 0;
+  font-weight: 600;
+}
+
+/* ---------- овалы ---------- */
+.oval {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: grab;
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.oval:active {
+  cursor: grabbing;
+}
+
+/* овал внутри box2 — абсолютное позиционирование */
+.box2 .oval {
+  position: absolute;
+  z-index: 2;
+}
+
+/* ---------- кнопка очистки ---------- */
+.clear-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
