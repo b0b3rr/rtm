@@ -19,7 +19,7 @@ var dropDone = false;
 
 function randomColor() {
   var h = Math.floor(Math.random() * 360);
-  return "hsl(" + h + ", 85%, 70%)";
+  return "hsl(" + h + ", 100%, 70%)";
 }
 
 function parseString(str) {
@@ -175,7 +175,6 @@ function onDragEnd(e) {
   draggedElement.removeEventListener("dragend", onDragEnd);
 
   if (!dropDone) {
-    // drop не состоялся — возвращаем на место
     if (draggedFrom === "box3") {
       draggedElement.style.visibility = "visible";
     } else {
