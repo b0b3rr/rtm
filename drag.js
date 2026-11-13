@@ -238,8 +238,8 @@ function dropToBox2(e, boxRect) {
 
   if (x < 0) x = 0;
   if (y < 0) y = 0;
-  if (x > maxX) x = maxX;
-  if (y > maxY) y = maxY;
+  if (x > maxX) x = maxX - 2;
+  if (y > maxY) y = maxY - 2;
 
   el.style.left = x + "px";
   el.style.top = y + "px";
